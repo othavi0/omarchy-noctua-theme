@@ -1,6 +1,6 @@
 # Omarchy Noctua Theme
 
-Neutral One Dark Pro palette for Omarchy/Hyprland, built on a `#242424` base. It ships matching terminal, shell, editor, and app colors plus three original wallpapers.
+Neutral One Dark Pro palette for Omarchy/Hyprland, built on a `#242424` base. It ships matching terminal, shell, editor, and app colors plus seven wallpapers.
 
 ![Noctua theme running on Hyprland, with editor and terminal](preview.png)
 
@@ -44,7 +44,7 @@ Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#2
 - `btop.theme` colors btop.
 - `chromium.theme` sets the Chromium frame color.
 - `icons.theme` selects the Yaru-blue icon theme.
-- `backgrounds/` holds the three wallpapers below.
+- `backgrounds/` holds the seven wallpapers below.
 
 ### Manual extras
 
@@ -92,4 +92,8 @@ Click any thumbnail for the full-resolution file.
 | --- | --- | --- |
 | [![City skyline at dusk](.github/assets/00-city-dusk.jpg)](backgrounds/00-city-dusk.jpg) | [![Close view of the moon](.github/assets/01-lunar-arc.jpg)](backgrounds/01-lunar-arc.jpg) | [![Snow-capped mountain ridge](.github/assets/02-alpine-ridge.jpg)](backgrounds/02-alpine-ridge.jpg) |
 | `00-city-dusk.jpg` | `01-lunar-arc.jpg` | `02-alpine-ridge.jpg` |
+| [![Golden Gate Bridge at sunset](.github/assets/03-golden-gate.jpg)](backgrounds/03-golden-gate.jpg) | [![Painted street with a burning van](.github/assets/04-burning-van.jpg)](backgrounds/04-burning-van.jpg) | [![Figure on a hill under a red moon](.github/assets/05-red-moon-hill.jpg)](backgrounds/05-red-moon-hill.jpg) |
+| `03-golden-gate.jpg` | `04-burning-van.jpg` | `05-red-moon-hill.jpg` |
+| [![Painted sky vortex over a ruined road](.github/assets/06-sky-vortex.jpg)](backgrounds/06-sky-vortex.jpg) | | |
+| `06-sky-vortex.jpg` | | |
 
