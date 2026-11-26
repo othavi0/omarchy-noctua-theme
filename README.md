@@ -1,6 +1,6 @@
 # Omarchy Noctua Theme
 
-Neutral One Dark Pro palette for Omarchy/Hyprland, built on a `#242424` base. It ships matching terminal, shell, editor, and app colors plus seven wallpapers.
+Neutral One Dark Pro palette for Omarchy/Hyprland, built on a near-black `#171717` base. It ships matching terminal, shell, editor, and app colors plus seven wallpapers.
 
 ![Noctua theme running on Hyprland, with btop, a terminal and the omarchy-shell bar](preview.png)
 
@@ -10,26 +10,21 @@ Omarchy 4 (Quattro) or newer.
 
 ## Install
 
-Use the Omarchy theme installer:
-
 ```bash
 omarchy-theme-install https://github.com/othavi0/omarchy-noctua-theme
 ```
 
-### herdr (opt-in)
-
-Omarchy does not theme [herdr](https://github.com/herdrdev/herdr), so its colors are not applied by the installer. To keep herdr in sync automatically, install the bundled Omarchy hook once:
+The installer clones the theme and applies it. To come back to it later, pick Noctua in the theme menu or run:
 
 ```bash
-mkdir -p ~/.config/omarchy/hooks/theme-set.d
-cp ~/.config/omarchy/themes/noctua/herdr.hook.sh ~/.config/omarchy/hooks/theme-set.d/herdr
+omarchy-theme-set noctua
 ```
 
-On every theme change the hook applies the theme's `herdr.toml` when it ships one, and falls back to herdr's `terminal` theme otherwise. It never overwrites a hand-edited `[theme]` block. Prefer manual setup? Follow the merge notes inside `herdr.toml`.
+Pull new versions with `omarchy-theme-update`, and uninstall with `omarchy-theme-remove noctua`.
 
 ## Palette
 
-Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#242424`. The primary Omarchy accent is `#61afef`.
+Noctua keeps the One Dark Pro syntax family while moving the desktop base to a neutral `#171717`. The primary Omarchy accent is `#61afef`, body text sits at 9.2:1 over the background, and muted text at 4.1:1. The bright row is a real lighter step of each hue.
 
 ![Noctua palette: core, normal and bright colors with hex values](.github/assets/palette.svg)
 
@@ -39,8 +34,9 @@ Noctua keeps the One Dark Pro syntax family while moving the desktop base to `#2
 
 `omarchy-theme-set noctua` applies these on its own.
 
-- `colors.toml` is the source Omarchy generates from. That covers the terminals (Alacritty, Kitty, Ghostty, Foot), the Hyprland window borders, the omarchy-shell surfaces (bar, launcher, notifications, popups, lock screen), and the Neovim, VS Code, Helix and Obsidian themes.
-- `shell.menu.toml` restyles the omarchy-shell menu with a darker card, a blue gradient border and a blue selected row.
+- `colors.toml` is the source Omarchy generates from. That covers the terminals (Alacritty, Kitty, Ghostty, Foot), the active and inactive Hyprland window borders, the omarchy-shell surfaces (bar, launcher, notifications, popups, lock screen), the Neovim, VS Code, Helix and Obsidian themes, Qt apps, the keyboard backlight, and the Herdr and Claude Code app themes.
+- `shell.menu.toml` and `shell.launcher.toml` restyle the omarchy-shell menu and launcher with a darker card, a blue gradient border and a blue selected row.
+- `shell.lock.toml` gives the lock screen input the same darker card and gradient border.
 - `btop.theme` colors btop.
 - `chromium.theme` sets the Chromium frame color.
 - `icons.theme` selects the Yaru-blue icon theme.
@@ -55,11 +51,10 @@ Omarchy does not apply these. Copy the ones you want into each app's config.
 - `vencord.theme.css` is a Discord theme for Vencord.
 - `firefox.css` holds base16 color variables for a Firefox `userChrome.css`.
 - `colors.fish` sets Fish syntax and pager colors.
-- `fzf.fish` sets fzf colors from Fish.
+- `fzf.fish` sets fzf colors from Fish, with the current line on the selection color.
 - `warp.yaml` is a Warp terminal theme.
 - `bat/Noctua.tmTheme` is a bat syntax theme.
 - `aether.override.css` and `aether.zed.json` are Aether and Zed overrides.
-- `herdr.toml` and `herdr.hook.sh` theme herdr, as described in the herdr section above.
 - `vscode.settings.snippet.jsonc` holds token refinements scoped to the One Dark Pro VS Code theme. They do nothing under the Omarchy theme that VS Code gets by default.
 
 ## Motion and shadow (opt-in)
@@ -97,3 +92,13 @@ Click any thumbnail for the full-resolution file.
 | [![Painted sky vortex over a ruined road](.github/assets/06-sky-vortex.jpg)](backgrounds/06-sky-vortex.jpg) | | |
 | `06-sky-vortex.jpg` | | |
 
+## Changing the palette
+
+Every color lives in `colors.toml`. The other files repeat those values, so after editing it run:
+
+```bash
+python3 scripts/sync_extras.py   # rewrites the fixed hex values in the other theme files
+python3 scripts/gen_palette.py   # redraws the palette image above
+```
+
+`sync_extras.py` compares `colors.toml` with the last commit, so run it before you commit. It ends by listing any hex value that is not part of the palette.

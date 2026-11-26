@@ -1,12 +1,12 @@
-background                = "#1c1c1c"
+background                = "#111111"
 background-alpha          = 1.0
-text                      = "#abb2bf"
-border                    = "rgba(61afefdd) rgba(2f415400) 35deg"
+text                      = "#b4bac6"
+border                    = "rgba(61afefdd) rgba(1d2b3a00) 35deg"
 border-alpha              = 1.0
 border-width              = 1
 scrim                     = "#000000"
 scrim-alpha               = 0.62
-selected-background       = "#ffffff"
+selected-background       = "#eceff4"
 selected-background-alpha = 0.05
 selected-text             = "#61afef"
 selected-border           = "#61afef"
