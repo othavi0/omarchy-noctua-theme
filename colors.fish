@@ -1,7 +1,7 @@
-set -l background 242424
-set -l foreground abb2bf
-set -l selection 333333
-set -l comment 5c6370
+set -l background 171717
+set -l foreground b4bac6
+set -l selection 243243
+set -l comment 727a86
 set -l red e06c75
 set -l orange d19a66
 set -l yellow e5c07b
@@ -9,7 +9,7 @@ set -l green 98c379
 set -l blue 61afef
 set -l purple c678dd
 set -l cyan 56b6c2
-set -l white ffffff
+set -l white eceff4
 
 set -g fish_color_normal $foreground
 set -g fish_color_command $blue

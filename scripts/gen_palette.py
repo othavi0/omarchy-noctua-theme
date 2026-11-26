@@ -7,21 +7,23 @@ from pathlib import Path
 ROOT = Path(__file__).resolve().parent.parent
 OUT = ROOT / ".github" / "assets" / "palette.svg"
 
-BG = "#1c1c1c"
-FG = "#abb2bf"
-MUTED = "#6c7380"
 STROKE = "#3d444d"
 MONO = "ui-monospace,SFMono-Regular,Menlo,Consolas,'DejaVu Sans Mono',monospace"
 
 W, PAD, GAP = 880, 28, 12
 
+HUES = ("red", "green", "yellow", "blue", "magenta", "cyan")
+CORE = ("background", "foreground", "accent", "selection_background",
+        "dark_background", "muted")
+# Mesma ordem ANSI que o Omarchy usa nos templates de terminal.
+NORMAL = ("background", *HUES, "foreground")
+BRIGHT = ("muted", *(f"bright_{h}" for h in HUES), "bright_foreground")
+
 
 def load_colors():
     text = (ROOT / "colors.toml").read_text()
     values = dict(re.findall(r'^(\w+)\s*=\s*"(#[0-9a-fA-F]{6})"', text, re.M))
-    missing = [k for k in ("background", "foreground", "accent",
-                           "selection_background") if k not in values]
-    missing += [f"color{i}" for i in range(16) if f"color{i}" not in values]
+    missing = [k for k in CORE + NORMAL + BRIGHT if k not in values]
     if missing:
         sys.exit(f"colors.toml sem as chaves: {', '.join(missing)}")
     return values
@@ -45,11 +47,13 @@ def row_label(x, y, text):
 
 
 def main():
+    global BG, FG, MUTED
     c = load_colors()
+    BG, FG, MUTED = c["dark_background"], c["foreground"], c["muted"]
     core = [("Background", c["background"]), ("Foreground", c["foreground"]),
             ("Accent", c["accent"]), ("Selection", c["selection_background"])]
-    normal = [c[f"color{i}"] for i in range(8)]
-    bright = [c[f"color{i}"] for i in range(8, 16)]
+    normal = [c[k] for k in NORMAL]
+    bright = [c[k] for k in BRIGHT]
 
     parts, y = [], PAD
 

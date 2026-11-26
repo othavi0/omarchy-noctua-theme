@@ -1,16 +1,16 @@
 // Opt-in token refinements for the Noctua theme.
 //
-// Why this lives outside vscode.json:
-// Omarchy's `omarchy-theme-set-vscode` only reads { name, extension } from
-// vscode.json — it cannot push token customizations. Paste the block below
-// into ~/.config/Code/User/settings.json (merge with existing keys). The
-// "[One Dark Pro]" scope keeps these refinements from leaking into other
-// themes you might switch to.
+// Why this is a snippet:
+// Omarchy generates the VS Code theme from colors.toml and cannot push token
+// customizations. Paste the block below into ~/.config/Code/User/settings.json
+// (merge with existing keys). The "[One Dark Pro]" scope keeps these
+// refinements from leaking into other themes, so they only apply when you
+// select the One Dark Pro extension theme yourself.
 {
   "editor.tokenColorCustomizations": {
     "[One Dark Pro]": {
       "comments": {
-        "foreground": "#6c7380",
+        "foreground": "#727a86",
         "fontStyle": "italic"
       },
       "textMateRules": [

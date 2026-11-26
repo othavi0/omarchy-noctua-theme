@@ -1,26 +1,26 @@
 name: Noctua
 accent: "#61afef"
-cursor: "#abb2bf"
-background: "#242424"
-foreground: "#abb2bf"
+cursor: "#b4bac6"
+background: "#171717"
+foreground: "#b4bac6"
 details: darker
 
 terminal_colors:
   normal:
-    black: "#242424"
+    black: "#171717"
     red: "#e06c75"
     green: "#98c379"
     yellow: "#d19a66"
     blue: "#61afef"
     magenta: "#c678dd"
     cyan: "#56b6c2"
-    white: "#abb2bf"
+    white: "#b4bac6"
   bright:
-    black: "#5c6370"
+    black: "#727a86"
     red: "#e06c75"
     green: "#98c379"
     yellow: "#e5c07b"
     blue: "#61afef"
     magenta: "#c678dd"
     cyan: "#56b6c2"
-    white: "#ffffff"
+    white: "#eceff4"

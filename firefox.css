@@ -1,12 +1,12 @@
 :root {
-  --color00: #242424; /* base background */
-  --color01: #303030; /* elevated background */
-  --color02: #3a3a3a; /* subtle borders */
-  --color03: #5c6370; /* muted text */
-  --color04: #8b939f; /* secondary text */
-  --color05: #abb2bf; /* primary text */
-  --color06: #ffffff; /* highlights */
-  --color07: #ffffff; /* pure white */
+  --color00: #171717; /* base background */
+  --color01: #222222; /* elevated background */
+  --color02: #2e2e2e; /* subtle borders */
+  --color03: #727a86; /* muted text */
+  --color04: #939aa6; /* secondary text */
+  --color05: #b4bac6; /* primary text */
+  --color06: #eceff4; /* highlights */
+  --color07: #eceff4; /* pure white */
   --color08: #e06c75; /* red */
   --color09: #d19a66; /* orange */
   --color0A: #e5c07b; /* yellow */
