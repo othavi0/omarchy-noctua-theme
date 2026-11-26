@@ -2,7 +2,7 @@
 
 Neutral One Dark Pro palette for Omarchy/Hyprland, built on a `#242424` base. It ships matching terminal, shell, editor, and app colors plus seven wallpapers.
 
-![Noctua theme running on Hyprland, with editor and terminal](preview.png)
+![Noctua theme running on Hyprland, with btop, a terminal and the omarchy-shell bar](preview.png)
 
 ## Requirements
 
