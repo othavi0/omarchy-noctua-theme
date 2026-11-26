@@ -50,8 +50,6 @@ Omarchy does not apply these. Copy the ones you want into each app's config.
 - `steam.css` holds color overrides for the Adwaita for Steam skin.
 - `vencord.theme.css` is a Discord theme for Vencord.
 - `firefox.css` holds base16 color variables for a Firefox `userChrome.css`.
-- `colors.fish` sets Fish syntax and pager colors.
-- `fzf.fish` sets fzf colors from Fish, with the current line on the selection color.
 - `warp.yaml` is a Warp terminal theme.
 - `bat/Noctua.tmTheme` is a bat syntax theme.
 - `aether.override.css` and `aether.zed.json` are Aether and Zed overrides.
@@ -94,11 +92,4 @@ Click any thumbnail for the full-resolution file.
 
 ## Changing the palette
 
-Every color lives in `colors.toml`. The other files repeat those values, so after editing it run:
-
-```bash
-python3 scripts/sync_extras.py   # rewrites the fixed hex values in the other theme files
-python3 scripts/gen_palette.py   # redraws the palette image above
-```
-
-`sync_extras.py` compares `colors.toml` with the last commit, so run it before you commit. It ends by listing any hex value that is not part of the palette.
+Every color lives in `colors.toml`. The manual extras, the `shell.*.toml` files and the palette image repeat those values by hand, so update them in the same change.
