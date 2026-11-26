@@ -7,7 +7,6 @@
 - Other root files (`gtk.css`, `steam.css`, `firefox.css`, `warp.yaml`, ...) are manual extras Omarchy does not apply; `btop.theme`, `chromium.theme` and `icons.theme` are applied as shipped.
 - `backgrounds/` contains the bundled wallpapers used by the theme. Omarchy scans this directory and treats every image in it as a selectable wallpaper — never put non-wallpaper assets here.
 - `.github/assets/` holds README-only assets (palette SVG, wallpaper thumbnails).
-- `scripts/` holds the palette generator, the palette sync for the manual extras, and the README integrity checker.
 - `preview.png` is the visual snapshot used in the README.
 
 ## Build, Test, and Development Commands
@@ -22,8 +21,9 @@ This repo is configuration-only; there is no build system or automated test runn
 - Keep filenames descriptive and lowercase, especially for wallpapers in `backgrounds/`.
 
 ## Testing Guidelines
-- Run `python3 scripts/check_readme.py` after touching the README or renaming any asset; it fails if a referenced path is missing or a theme file is undocumented.
-- After changing `colors.toml`, and before committing, run `python3 scripts/sync_extras.py` to rewrite the fixed hex values in the other theme files, then `python3 scripts/gen_palette.py` to redraw the palette. Never edit a palette hex by hand in the extras.
+- After touching the README or renaming an asset, check that every path it references exists and every theme file is documented.
+- After changing `colors.toml`, update the same hex values in the manual extras, the `shell.*.toml` files and `.github/assets/palette.svg` in the same change.
+- The theme ships no scripts, hooks or installers: the Omarchy site audit rejects themes that carry code. Keep tools outside this repository.
 - No other automated tests are defined.
 - Verify changes visually in the target app and update `preview.png` when the UI changes.
 - Neovim has no file here: Omarchy generates `neovim.lua` from `colors.toml` (aether.nvim), so check Neovim colors by changing `colors.toml`.
